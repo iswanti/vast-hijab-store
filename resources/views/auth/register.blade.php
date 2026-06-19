@@ -138,6 +138,13 @@
                             <input type="password" name="password"
                                 class="w-full border rounded-xl pl-11 pr-4 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
 
+                            <button type="button" onclick="togglePassword()"
+                                class="absolute right-4 top-3 text-gray-400">
+
+                                <i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+                            </button>
+
                         </div>
 
                     </div>
@@ -156,6 +163,12 @@
 
                             <input type="password" name="password_confirmation"
                                 class="w-full border rounded-xl pl-11 pr-4 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
+                            <button type="button" onclick="togglePassword()"
+                                class="absolute right-4 top-3 text-gray-400">
+
+                                <i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+                            </button>
 
                         </div>
 
