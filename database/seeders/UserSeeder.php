@@ -11,21 +11,19 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'superadmin@vasthijab.com'],
+            ['email' => 'superadmin@gmail.com'],
             [
                 'name' => 'Super Admin',
-                'nomor_telepon' => '081234567890',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('superadmin1234'),
                 'role' => 'superadmin',
             ]
         );
 
         User::updateOrCreate(
-            ['email' => 'owner@vasthijab.com'],
+            ['email' => 'ownervasthijab@gmail.com'],
             [
                 'name' => 'Owner Vast Hijab',
-                'nomor_telepon' => '081234567891',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('ownervasthijab1234'),
                 'role' => 'owner',
             ]
         );
