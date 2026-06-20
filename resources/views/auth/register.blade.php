@@ -123,55 +123,46 @@
 
                     </div>
 
+                    <!-- PASSWORD -->
                     <div class="mb-4">
-
                         <label class="font-medium">
-
                             Password
-
                         </label>
 
                         <div class="relative mt-2">
-
                             <i class="fa fa-lock absolute left-4 top-4 text-gray-400"></i>
 
-                            <input type="password" name="password"
-                                class="w-full border rounded-xl pl-11 pr-4 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
+                            <input type="password" id="password" name="password" required
+                                class="w-full border rounded-xl pl-11 pr-12 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
 
-                            <button type="button" onclick="togglePassword()"
-                                class="absolute right-4 top-3 text-gray-400">
+                            <button type="button" onclick="togglePassword('password','eyeIcon1')"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-gray-400 cursor-pointer">
 
-                                <i id="eyeIcon" class="fa-solid fa-eye"></i>
+                                <i id="eyeIcon1" class="fa-solid fa-eye"></i>
 
                             </button>
-
                         </div>
-
                     </div>
 
+                    <!-- KONFIRMASI PASSWORD -->
                     <div class="mb-6">
-
                         <label class="font-medium">
-
                             Konfirmasi Password
-
                         </label>
 
                         <div class="relative mt-2">
-
                             <i class="fa fa-lock absolute left-4 top-4 text-gray-400"></i>
 
-                            <input type="password" name="password_confirmation"
-                                class="w-full border rounded-xl pl-11 pr-4 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
-                            <button type="button" onclick="togglePassword()"
-                                class="absolute right-4 top-3 text-gray-400">
+                            <input type="password" id="password_confirmation" name="password_confirmation" required
+                                class="w-full border rounded-xl pl-11 pr-12 py-3 focus:ring-2 focus:ring-pink-400 focus:outline-none">
 
-                                <i id="eyeIcon" class="fa-solid fa-eye"></i>
+                            <button type="button" onclick="togglePassword('password_confirmation','eyeIcon2')"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 z-50 text-gray-400 cursor-pointer">
+
+                                <i id="eyeIcon2" class="fa-solid fa-eye"></i>
 
                             </button>
-
                         </div>
-
                     </div>
 
                     <button
@@ -216,7 +207,39 @@
             });
         </script>
     @endif
-    ```
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+
+                icon: 'success',
+
+                title: 'Registrasi Berhasil',
+
+                text: '{{ session('success') }}',
+
+                confirmButtonColor: '#ec4899'
+
+            });
+        </script>
+    @endif
+
+    <script>
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
 
 </body>
 
