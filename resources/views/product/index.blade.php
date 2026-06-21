@@ -202,6 +202,7 @@
                                 <img src="{{ asset('storage/' . $product->gambar) }}"
                                     class="w-16 h-16 object-cover rounded-xl border shadow-sm">
 
+
                             </td>
 
                             <td class="p-4">
