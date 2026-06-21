@@ -22,11 +22,11 @@ class ProductController extends Controller
         | Admin hanya lihat product miliknya sendiri
         */
 
-        if (Auth::user()->role == 'admin') {
+        //if (Auth::user()->role == 'admin') {
 
-            $query->where('user_id', Auth::id());
+         //   $query->where('user_id', Auth::id());
 
-        }
+        // }
 
         /*
         |--------------------------------------------------------------------------
@@ -134,7 +134,7 @@ class ProductController extends Controller
 
         Product::create([
 
-            'user_id' => Auth::id(),
+           // 'user_id' => Auth::id(),
 
             'kode_product' => $request->kode_product,
             'nama' => $request->nama,
@@ -159,14 +159,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if (
-            Auth::user()->role == 'admin' &&
-            $product->user_id != Auth::id()
-        ) {
+        //if (
+        //    Auth::user()->role == 'admin' &&
+        //  $product->user_id != Auth::id()
+        //) {
 
-            abort(403);
+        //    abort(403);
 
-        }
+        //}
 
         return view('product.edit', compact('product'));
     }
@@ -178,14 +178,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if (
-            Auth::user()->role == 'admin' &&
-            $product->user_id != Auth::id()
-        ) {
+        //if (
+        //  Auth::user()->role == 'admin' &&
+         //   $product->user_id != Auth::id()
+        //) {
 
-            abort(403);
+          //  abort(403);
 
-        }
+        //}
 
         $request->validate([
 
@@ -234,14 +234,14 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        if (
-            Auth::user()->role == 'admin' &&
-            $product->user_id != Auth::id()
-        ) {
+       // if (
+         //   Auth::user()->role == 'admin' &&
+           // $product->user_id != Auth::id()
+        //) {
 
-            abort(403);
+          //  abort(403);
 
-        }
+        //}
 
         $product->delete();
 
