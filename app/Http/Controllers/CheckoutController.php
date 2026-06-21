@@ -114,6 +114,26 @@ class CheckoutController extends Controller
             'status' => 'Menunggu Konfirmasi'
 
         ]);
+        Notification::create([
+
+        'order_id' => $order->id,
+
+        'user_id' => auth()->id(),
+
+        'role' => 'admin',
+
+        'title' => 'Pesanan Baru',
+
+        'message' =>
+        auth()->user()->name .
+        ' melakukan checkout ' .
+        $carts->count() .
+        ' produk dengan invoice ' .
+        $invoice,
+
+        'is_read' => false
+
+        ]);
 
         foreach ($carts as $cart) {
 
