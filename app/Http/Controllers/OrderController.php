@@ -41,31 +41,25 @@ class OrderController extends Controller
 
         $admin = '6285159748894';
 
-        $pesan =
-            "Halo Admin Vast Hijab%0A%0A" .
-            "Invoice : " . $order->invoice . "%0A" .
-            "Nama : " . $order->user->name . "%0A%0A";
+       $pesan  = "Halo Admin Vast Hijab\n\n";
+       $pesan .= "Invoice : {$order->invoice}\n";
+       $pesan .= "Nama : {$order->user->name}\n\n";
 
-        foreach ($order->details as $detail) {
-
-            $pesan .=
-                "Produk : " . $detail->product->nama . "%0A" .
-                "Warna : " . $detail->warna . "%0A" .
-                "Size : " . $detail->size . "%0A" .
-                "Qty : " . $detail->qty . "%0A%0A";
-        }
+       foreach ($order->details as $detail) {
 
         $pesan .=
-            "Total : Rp " .
-            number_format(
-                $order->total,
-                0,
-                ',',
-                '.'
-            );
+        "Produk : {$detail->product->nama}\n" .
+        "Warna : {$detail->warna}\n" .
+        "Size : {$detail->size}\n" .
+        "Qty : {$detail->qty}\n\n";
+       }
+
+        $pesan .= "Total : Rp " .
+        number_format($order->total,0,',','.');
 
         $waLink =
-            "https://wa.me/$admin?text=$pesan";
+        "https://wa.me/{$admin}?text=" .
+        rawurlencode($pesan);
 
         return view(
             'user.order-detail',
