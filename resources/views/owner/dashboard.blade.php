@@ -2,8 +2,6 @@
 
 @section('content')
     <div class="space-y-8">
-
-        ```
         <!-- HEADER -->
         <div class="flex flex-col md:flex-row justify-between items-center">
 

@@ -253,7 +253,7 @@ public function exportPdf(Request $request)
         $orders->sum('total');
 
     $pdf = Pdf::loadView(
-        'owner.pdf',
+        'owner.laporan.pdf',
         compact(
             'orders',
             'totalPendapatan',
