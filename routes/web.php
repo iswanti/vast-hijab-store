@@ -131,17 +131,17 @@ Route::middleware(['auth', 'owner'])->group(function () {
 
     Route::get(
         '/owner',
-        [AdminController::class,'ownerDashboard']
+        [AdminController::class, 'ownerDashboard']
     )->name('owner.dashboard');
 
     Route::get(
         '/owner/laporan-penjualan',
-        [AdminController::class,'laporanPenjualanOwner']
+        [AdminController::class, 'laporanPenjualanOwner']
     )->name('owner.laporan');
 
     Route::get(
         '/owner/laporan-penjualan/pdf',
-        [AdminController::class,'exportPdfOwner']
+        [AdminController::class, 'exportPdf']
     )->name('owner.laporan.pdf');
 
 });
